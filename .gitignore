@@ -2,3 +2,4 @@
 /.venv
 /my_db.db
 **.pyc
+__pycache__/
