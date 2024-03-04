@@ -1,5 +1,6 @@
 /.env
 /.venv
 /my_db.db
-**.pyc
+**.pyc**
+**cpython**
 __pycache__/
