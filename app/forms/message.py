@@ -1,5 +1,5 @@
 from wtforms import (Form, BooleanField, StringField, PasswordField,
-                     validators, SubmitField, SelectField, TextAreaField)
+                     validators, SubmitField, SelectField, TextAreaField, EmailField)
 from db import Session, Department, Executor, Order
 from sqlalchemy import select
 
@@ -25,3 +25,4 @@ with Session.begin() as session:
             'Опис заявки',
             [validators.Length(min=10, max=255)]
         )
+

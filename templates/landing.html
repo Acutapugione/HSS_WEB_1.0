@@ -1,64 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ tittle|default("Автоматизація обробки звернень до АГЧ лікарні") }}</title>
+{% extends "_base.html" %}
+{% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
-</head>
-<body style="background-image: url({{url_for('static', filename='img/landing.jpg')}});">
+{% endblock styles %}
+    
+{% block header %}
     <header>
         <h1>{{ tittle|default("Автоматизація обробки звернень до АГЧ лікарні") }}</h1>
         <p>Ефективне та зручне рішення для покращення комунікації та документообігу</p>
     </header>
-    <main>
-        <div class="container">
-<section class="problem">
-    <h2>Втомились від черг та затримок при зверненні до АГЧ?</h2>
-    <ul>
-        <li>Години очікування у черзі</li>
-        <li>Втрата документів</li>
-        <li>Складність отримання інформації</li>
-        <li>Необхідність особисто приходити до АГЧ</li>
-    </ul>
-</section>
-<section class="solution">
-    <h2>Веб-додаток для автоматизації обробки звернень до АГЧ</h2>
-    <ul>
-        <li>Швидка та зручна подача звернень</li>
-        <li>Відстеження статусу звернення онлайн</li>
-        <li>Отримання повідомлень про оновлення</li>
-        <li>Економія часу та ресурсів</li>
-        <li>Зменшення рутинних завдань для персоналу</li>
-    </ul>
-</section>
-<section class="testimonials">
-    <h2>Що кажуть користувачі</h2>
-    <ul>
-        <li>
-            "Завдяки веб-додатку я можу подати заявку на ремонт кабінету за лічені хвилини." - <strong>Іван Петренко, лікар</strong>
-        </li>
-        <li>
-            "Веб-додаток значно спростив нашу роботу з документами." - <strong>Марія Іванова, секретар АГЧ</strong>
-        </li>
-    </ul>
-</section>
+{% endblock header %}
+{% block content %}
+    <section class="problem">
+        <h2>Втомились від черг та затримок при зверненні до АГЧ?</h2>
+        <ul>
+            <li>Години очікування у черзі</li>
+            <li>Втрата документів</li>
+            <li>Складність отримання інформації</li>
+            <li>Необхідність особисто приходити до АГЧ</li>
+        </ul>
+    </section>
+    <section class="solution">
+        <h2>Веб-додаток для автоматизації обробки звернень до АГЧ</h2>
+        <ul>
+            <li>Швидка та зручна подача звернень</li>
+            <li>Відстеження статусу звернення онлайн</li>
+            <li>Отримання повідомлень про оновлення</li>
+            <li>Економія часу та ресурсів</li>
+            <li>Зменшення рутинних завдань для персоналу</li>
+        </ul>
+    </section>
+    <section class="testimonials">
+        <h2>Що кажуть користувачі</h2>
+        <ul>
+            <li>
+                "Завдяки веб-додатку я можу подати заявку на ремонт кабінету за лічені хвилини." - <strong>Іван
+                    Петренко, лікар</strong>
+            </li>
+            <li>
+                "Веб-додаток значно спростив нашу роботу з документами." - <strong>Марія Іванова, секретар
+                    АГЧ</strong>
+            </li>
+        </ul>
+    </section>
 
-    
-</div>
-<section class="call-to-action">
-    <h2>Спробуйте веб-додаток безкоштовно!</h2>
-    <a href="#">Зареєструватися</a>
-    <p>Або зв'яжіться з нами:</p>
-    <ul>
-        <li>Телефон: +380 (00) 000-00-00</li>
-        <li>Email: info@example.com</li>
-    </ul>
-</section>
-</container>
-</main>
-<footer>
-    <p>Copyright &copy; 2023</p>
-</footer>
-</body>
-</html>
+
+    </div>
+    <section class="call-to-action">
+        <h2>Спробуйте веб-додаток безкоштовно!</h2>
+        <a href="{{ url_for('sign_up') }}">Зареєструватися</a>
+        <a href="{{ url_for('about') }}">Про нас</a>
+        <p>Або зв'яжіться з нами:</p>
+        <ul>
+            <li>Телефон: +380 (00) 000-00-00</li>
+            <li>Email: info@example.com</li>
+        </ul>
+    </section>
+{% endblock content %}

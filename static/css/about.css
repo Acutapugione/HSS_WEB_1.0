@@ -35,66 +35,6 @@ footer {
     /* Ensure footer stays above content on hover */
 }
 
-
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-header h1 {
-    animation: slideInRight 2s ease-in-out;
-}
-
-header p {
-    animation: fadeInDown 1.5s ease-in-out;
-}
-
 h1,
 h2 {
     margin-bottom: 10px;
@@ -141,26 +81,6 @@ section {
 
 }
 
-.problem h2,
-.testimonials h2 {
-    animation: slideInLeft 1s ease-in-out;
-}
-
-.solution h2,
-.call-to-action h2 {
-    animation: slideInLeft 1s ease-in-out;
-}
-
-
-.problem ul li,
-.solution ul li {
-    animation: fadeInUp 0.7s ease-in-out;
-}
-
-.testimonials ul li,
-.call-to-action ul li {
-    animation: fadeInDown 0.7s ease-in-out;
-}
 
 
 .call-to-action {
@@ -183,25 +103,4 @@ section {
 
 .call-to-action p {
     margin-bottom: 10px;
-}
-
-
-main section {
-    animation: shadowUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) reverse;
-}
-
-main section:hover {
-    animation: shadowUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
-}
-
-@keyframes shadowUp {
-    from {
-        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    to {
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-        background-color: rgba(245, 245, 245, 0.5);
-    }
 }

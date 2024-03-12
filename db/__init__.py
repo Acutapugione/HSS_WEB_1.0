@@ -2,16 +2,19 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase, Mapped, mapped_column
 
 
-engine = create_engine("sqlite:///my_db.db", echo=True)
+engine = create_engine("sqlite:///my_db.db", echo=False)
 Session = sessionmaker(engine)
 
 
 class Base(DeclarativeBase):
     id: Mapped[int] = mapped_column(primary_key=True)
 
+    
     def __repr__(self) -> str:
         if hasattr(self, "name"):
             return self.name
+        if hasattr(self, "email"):
+            return self.email
         return super().__str__()
     
     @classmethod
@@ -19,7 +22,7 @@ class Base(DeclarativeBase):
     def __tablename__(cls) -> str:
         return cls.__name__.lower() + "s"
 
-from . models import Department, Executor, Order
+from . models import Department, Executor, Order, User
 
 
 def up():
