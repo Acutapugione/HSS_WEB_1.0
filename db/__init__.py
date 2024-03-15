@@ -52,4 +52,4 @@ def up():
         ]
         session.add_all([*departaments, *executors])
         
-up()
+# up()
