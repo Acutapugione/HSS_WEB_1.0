@@ -1,3 +1,6 @@
+from .. utils import API_Worker
+
+
 AUTH_CONTEXT = {
     "auth_endpoints": [
         ("logout", "Вийти",), 
@@ -18,7 +21,10 @@ ANONYMOUS_CONTEXT = {
     ]
 }
 
-
+API_WORKER = API_Worker(host="http://localhost", port=8000)
+messages = API_WORKER.get_messages()
+print(f"{messages=}")
+exit()
 from . auth import sign_in, sign_up
 from . landing import landing
 from . appeal import appeals, create_appeal, appeal

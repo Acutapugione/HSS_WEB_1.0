@@ -5,7 +5,7 @@ from ..forms import MessageForm
 from db import Session, Department, Executor, Appeal, User, Status
 from sqlalchemy import select
 from flask_login import current_user, login_required
-from . import AUTH_CONTEXT
+from . import AUTH_CONTEXT, API_WORKER
 
 @login_required
 def update_appeal(session, form, id):
@@ -46,6 +46,10 @@ def create_appeal():
     if request.method == 'POST' and form.validate():
         with Session.begin() as session:
             save_appeal(session, form)
+            API_WORKER.post_message({
+                "text": form.description.data,
+                "phone_number": form.phone.data,
+            })
             flash(f'На ваш номер: {form.phone.data} відправлено повідомленням із підтвердженням заявки')
             return redirect(url_for("appeals"))
     context.update({'form': form})
@@ -64,6 +68,10 @@ def appeal(id):
             return redirect(url_for("appeals"))
         with Session.begin() as session:
             update_appeal(session, form, id)
+            API_WORKER.post_message({
+                "text": form.description.data,
+                "phone_number": form.phone.data,
+            })
             flash(f'На ваш номер: {form.phone.data} відправлено повідомленням із підтвердженням заявки')
             return redirect(url_for("appeals"))
     appeal_sql = select(Appeal).where(Appeal.id == id)
