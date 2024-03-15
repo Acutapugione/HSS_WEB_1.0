@@ -14,8 +14,11 @@ class User( Base ):
     id:Mapped[int] = mapped_column(primary_key=True)
     email: Mapped[str] = mapped_column(String(255), index=True, unique=True)
     password_hash: Mapped[str] = mapped_column(String(128))
+    appeals: Mapped[List["Appeal"]] = relationship(back_populates="user")
+    
     def __str__(self) -> str:
         return f"{self.email}"
+    
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 

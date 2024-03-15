@@ -10,11 +10,13 @@ class Base(DeclarativeBase):
     id: Mapped[int] = mapped_column(primary_key=True)
 
     
-    def __repr__(self) -> str:
+    def __str__(self) -> str:
         if hasattr(self, "name"):
             return self.name
         if hasattr(self, "email"):
             return self.email
+        if hasattr(self, "title"):
+            return self.title
         return super().__str__()
     
     @classmethod
@@ -22,10 +24,12 @@ class Base(DeclarativeBase):
     def __tablename__(cls) -> str:
         return cls.__name__.lower() + "s"
 
-from . models import Department, Executor, Order, User
+from . models import Department, Executor, Appeal, User, Status
 
 
 def up():
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
     with Session.begin() as session:
         departaments = [
             Department(
@@ -48,8 +52,4 @@ def up():
         ]
         session.add_all([*departaments, *executors])
         
-        
-
-Base.metadata.drop_all(engine)
-Base.metadata.create_all(engine)
 up()

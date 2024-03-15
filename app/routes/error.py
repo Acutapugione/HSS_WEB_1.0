@@ -8,7 +8,7 @@ def page_not_found(error):
 
 @app.errorhandler(401)
 def page_not_found(error):
-    return redirect(url_for("sign_in"))
+    return redirect(url_for("sign_up"))
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():

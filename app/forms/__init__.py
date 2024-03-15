@@ -1,2 +1,2 @@
 from .message import MessageForm
-from .user import UserSignUpForm, UserSignInForm
+from .user import UserSignUpForm, UserSignInForm, UserProfileForm

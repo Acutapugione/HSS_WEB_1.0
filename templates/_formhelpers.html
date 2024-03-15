@@ -1,3 +1,24 @@
+{% macro render_form(form) %}
+  {% for field in form %}
+    {% if field.type == 'SubmitField' %}
+      {{ render_button(field)}}
+    {% else %}
+        <div class="input-group mb-3 row row-cols-sm-3 row-cols-xs-1 row-cols-md-4">
+            <label class="input-group-text" for="{{ field.id }}">{{ field.label.text }}</label>
+            {{ field(**kwargs)|safe }}
+            {% if field.errors %}
+                <ul class="errors">
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+
 {% macro render_field(field) %}
   <dt><span class="input-group-text">{{ field.label }}</span>
   <dd>{{ field(**kwargs)|safe }}

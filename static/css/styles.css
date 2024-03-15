@@ -1,0 +1,73 @@
+:root {
+    --primary-color: #ffa62e;
+    --bg-start-color: #ffa62e;
+    --bg-middle-color: #00bcd4;
+    --bg-end-color: #ffc107;
+}
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url('../fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Montserrat-Variable";
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+/* General styles */
+body {
+    font-family: "Montserrat-Variable", "Montserrat-Regular", Fallback, sans-serif !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    padding-bottom: 150px;
+    overflow-x: hidden;
+    /* background: linear-gradient(#f69d3c, #3f87a6); */
+    background: linear-gradient(45deg, var(--bg-start-color), var(--bg-middle-color), var(--bg-end-color));
+}
+
+header {
+    background-color: #3f51b5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.modal-content {
+    background: linear-gradient(#f69d3c, #3f87a6);
+}
+
+footer {
+    background-color: rgba(243, 243, 243, 0.35);
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    /* Make footer stick to bottom */
+    bottom: 0;
+    width: 100%;
+    /* Ensure footer spans full width */
+    z-index: 100;
+    /* Ensure footer stays above content on hover */
+}
+
+main section {
+    animation: shadowUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) reverse;
+}
+
+main section:hover {
+    animation: shadowUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+@keyframes shadowUp {
+    from {
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        background-color: rgba(245, 245, 245, 0.5);
+    }
+}

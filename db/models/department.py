@@ -11,5 +11,5 @@ from .. import Base
 
 class Department(Base):
     name: Mapped[str] = mapped_column(unique=True)
-    orders: Mapped[List["Order"]] = relationship(back_populates="target")
+    appeals: Mapped[List["Appeal"]] = relationship(back_populates="target")
     

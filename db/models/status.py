@@ -1,5 +1,6 @@
 from typing import List
 from typing import Optional
+from datetime import datetime, date
 from sqlalchemy import ForeignKey
 from sqlalchemy import String
 from sqlalchemy.orm import DeclarativeBase
@@ -9,6 +10,7 @@ from sqlalchemy.orm import relationship
 from .. import Base
 
 
-class Executor(Base):
-    name: Mapped[str] = mapped_column(unique=True)
-    appeals: Mapped[List["Appeal"]] = relationship(back_populates="executor")
+
+class Status(Base):
+    title: Mapped[str] = mapped_column(String(150), default="Processing")
+    appeal: Mapped["Appeal"] = relationship(back_populates="status")
